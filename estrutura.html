@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QCA</title>
+
+  <link rel="icon" href="icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <!-- Cabeçalho fixo com título e ícones -->
+  <header class="quiz-header">
+    <h1 class="logo">🧠 QCA - Quizzes de Consciência Ambiental 🌱</h1>
+
+    <!-- Ícones interativos do menu (ajuda e informações) -->
+    <div class="header-icons">
+      <button id="btnAjuda" title="Como o Jogo Funciona?">
+        <img src="buttons/help.svg" width="32" height="32">
+      </button>
+      <button id="btnSobre" title="Informações Sobre o Projeto">
+        <img src="buttons/info.svg" width="32" height="32">
+      </button>
+    </div>
+  </header>
+
+  <!-- Tela de agradecimento após o usuário finalizar todos os níveis -->
+  <section id="telaEncerramento" class="hidden">
+    <div class="mensagem-final">
+      <h2>🎉 Parabéns! 🎊</h2>
+      <p>Você concluiu todos os níveis do QCA - Quizzes de<br>Consciência Ambiental! ✨</p>
+      <p>Obrigado por participar e por se importar com o<br>futuro do nosso planeta. 🌎💚</p>
+    </div>
+  </section>
+
+  <!-- Tela inicial do menu com a lista de níveis -->
+  <section class="menu-inicial">
+
+    <h2>⭐ Bem-vindo(a) ao QCA! 🍃</h2>
+    <p>➡️ Clique na setinha para explorar os níveis disponíveis e descubra o quanto você está<br>consciente sobre o meio ambiente em situações cotidianas. Boa jornada! 🚩</p>
+    <p>👀 Quer saber mais? É só clicar em um dos ícones no canto superior direito. 💡</p>
+
+    <!-- Botão que abre e fecha a visualização dos níveis -->
+    <button id="toggleNiveis" class="btn-seta">
+      <img src="buttons/arrow_circle_right.svg" width="48" height="48">
+    </button>
+
+    <!-- Janela central que mostra os 7 níveis com status -->
+    <div id="niveisBox" class="hidden">
+      <h2>🔰 Escolha um nível para jogar:</h2>
+      <ul id="listaNiveis"></ul>
+    </div>
+
+    <!-- Modal de guia do quiz antes de começar -->
+    <div id="guiaQuiz" class="guia hidden">
+      <div class="guia-conteudo">
+        <h3>Guia do Quiz:</h3>
+        <ul>
+          <li>1. O nível possui tem 10 perguntas.</li>
+          <li>2. Só vale responder com uma alternativa.</li>
+          <li>3. Não é possível pular e nem voltar.</li>
+          <li>4. Responda com atenção, não é possível refazer!</li>
+          <li>5. Use as teclas [A], [B], [C] e [D] para responder, e [Enter] para avançar.</li>
+        </ul>
+
+        <div class="botoes-guia">
+          <button id="voltarGuia">Voltar</button>
+          <button id="iniciarQuiz">Começar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de ajuda com explicações do funcionamento -->
+    <div id="janelaAjuda" class="modal hidden">
+      <div class="modal-conteudo">
+        <span class="fechar" id="fecharAjuda">X</span>
+        <h3>📖 Como o Jogo Funciona?</h3>
+        <p>O QCA é um jogo dividido em 7 níveis temáticos, cada um com 10 perguntas sobre atitudes ambientais.</p>
+        <p>Suas respostas das perguntas representam atitudes reais. Dependendo da alternativa escolhida, sua pontuação será afetada, positiva ou negativamente.</p>
+        <p>Ao final do quiz, você verá sua pontuação e receberá dicas baseadas em suas respostas.</p>
+        <p>Para desbloquear o próximo nível, é necessário concluir o anterior. As pontuações são salvas e não podem ser refeitas.</p>
+        <p>Só é possível jogar um nível por dia, incentivando o tempo de reflexão entre as fases.</p>
+      </div>
+    </div>
+
+    <!-- Modal de informações sobre o projeto -->
+    <div id="janelaSobre" class="modal hidden">
+      <div class="modal-conteudo">
+        <span class="fechar" id="fecharSobre">X</span>
+        <h3>📃 Informações Sobre o Projeto:</h3>
+        <p>Este projeto foi desenvolvido para incentivar hábitos mais sustentáveis de forma educativa e interativa.</p>
+        <p>Feito com o objetivo de conscientizar sem julgar, respeitando a individualidade de cada um.</p>
+        <p>"Pequenas atitudes, grandes impactos."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tela do quiz com perguntas e alternativas -->
+  <section class="quiz_box hidden">
+    <div class="quiz-content">
+      <h2 id="perguntaTexto">Pergunta</h2>
+      <div id="opcoes" class="opcoes-container"></div>
+
+      <!-- Botão para passar para a próxima pergunta -->
+      <button id="proximaPergunta" class="btn-proxima" disabled>Próxima</button>
+    </div>
+  </section>
+
+  <!-- Tela de finalização com pontuação e dicas -->
+  <section class="result_box hidden">
+    <div class="result-conteudo">
+      <h2>Resultado Final:</h2>
+      <p id="pontuacaoFinal"></p>
+      <pre id="dicasFinal" class="dicas-box"></pre>
+
+      <!-- Botões para compartilhar e encerrar -->
+      <button id="compartilharResultado" class="btn-compartilhar">Compartilhar Resultado</button>
+      <button id="encerrarQuiz" class="btn-encerrar">Encerrar</button>
+    </div>
+  </section>
+
+  <!-- Scripts principais do jogo -->
+  <script src="menu.js"></script>
+  <script src="quizzes.js"></script>
+  <script src="perguntas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+/* --- FONTES VARIÁVEIS --- */
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/SourGummy-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/SourGummy-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: italic;
+}
+
+/* --- FONTES ESTÁTICAS --- */
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourGummy';
+  src: url('fonts/static/SourGummy-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* --- CONFIGURAÇÕES GERAIS DO SITE --- */
+body {
+  font-family: 'SourGummy';
+  margin: 0;
+  padding: 0;
+  background-color: #05344a;
+  color: #ffffff;
+}
+
+/* Remove margens e paddings padrão de listas */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- CABEÇALHO FIXO DO JOGO --- */
+.quiz-header {
+  background-color: #81d8c9;
+  color: #05344a;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Título no topo (QCA - Quizzes de Consciência Ambiental) */
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Ícones do canto superior direito (ajuda e informações) */
+.header-icons button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* --- TELA INICIAL & MENU COM NÍVEIS --- */
+.menu-inicial {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Botão de seta para abrir e fechar os níveis */
+.btn-seta {
+  background-color: #73b21a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+/* Caixa central que mostra os níveis disponíveis */
+#niveisBox {
+  color: #000000;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Cada item da lista de níveis */
+#listaNiveis li {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Cores dependendo do estado do nível */
+.disponivel {
+  background-color: #d4edda;
+  border-left: 6px solid #28a745;
+}
+
+.bloqueado {
+  background-color: #f8d7da;
+  border-left: 6px solid #dc3545;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.completo {
+  background-color: #d1ecf1;
+  border-left: 6px solid #17a2b8;
+}
+
+/* --- GUIA DO QUIZ (Antes de começar) --- */
+.guia {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 52, 74, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.guia-conteudo {
+  color: #000000;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: left;
+  max-width: 400px;
+  width: 90%;
+}
+
+.botoes-guia {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.botoes-guia button {
+  font-family: 'SourGummy';
+  padding: 10px 20px;
+  border: none;
+  background-color: #73b21a;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* --- QUIZ PRINCIPAL --- */
+.quiz_box {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.opcoes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.opcao {
+  font-family: 'SourGummy';
+  background-color: #ffffff;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+  font-size: 1em;
+}
+
+/* Alternativa selecionada */
+.opcao.selecionado {
+  background-color: #d5f2b2;
+  border: 2px solid #73b21a;
+}
+
+.btn-proxima {
+  font-family: 'SourGummy';
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #73b21a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* --- TELA DE RESULTADO FINAL --- */
+.result_box {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.result-conteudo {
+  color: #000000;
+  background-color: #ffffff;
+  border: 10px solid #c4e3d3;
+  border-radius: 10px;
+  padding: 30px;
+  display: inline-block;
+  max-width: 600px;
+  width: 100%;
+}
+
+.dicas-box {
+  font-family: 'SourGummy';
+  background-color: #b7dbe2;
+  color: #346c7c;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+/* Botões finais */
+.btn-compartilhar,
+.btn-encerrar {
+  font-family: 'SourGummy';
+  margin: 15px 10px 0;
+  padding: 10px 20px;
+  background-color: #73b21a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* --- TELA DE AGRADECIMENTO FINAL --- */
+#telaEncerramento {
+  padding: 60px 20px;
+  text-align: center;
+  display: none;
+}
+
+#telaEncerramento.visivel {
+  display: block;
+}
+
+.mensagem-final {
+  color: #000000;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* --- JANELAS MODAIS (ajuda e informações) --- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 52, 74, 0.5);
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-conteudo {
+  color: #000000;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: left;
+}
+
+/* Botão "X" para fechar os modais */
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #000000;
+}
+
+/* --- CLASSES AUXILIARES --- */
+.hidden {
+  display: none !important;
+}
+
+.visivel {
+  display: block !important;
+}
