@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Função de copiar o resultado para o clipboard para compartilhar 
   if (compartilharBtn) {
     compartilharBtn.addEventListener("click", () => {
-        const texto = `🌱 Minha pontuação de consciência ambiental foi ${pontuacao}% no QCA!\n🧠 Descubra a sua também: https://gustavinho-qca.github.io`;
+        const texto = `🌱 Minha pontuação de consciência ambiental foi ${pontuacao}% no QCA!\n🧠 Descubra a sua também: https://gustavomace.github.io/qca_eco_game`;
         
         // Copia o texto para a área de transferência
         navigator.clipboard.writeText(texto).then(() => {
